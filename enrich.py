@@ -1,14 +1,18 @@
-"""Call Claude to extract structured metadata for a batch of scraped events."""
+"""Call GitHub Models (OpenAI-compatible) to extract structured metadata for events."""
 from __future__ import annotations
 
+import json
 import os
 import sys
 from typing import Optional
 
-import anthropic
+from openai import OpenAI, OpenAIError
 from pydantic import BaseModel, Field
 
-MODEL = "claude-haiku-4-5"
+MODEL = "openai/gpt-4o-mini"
+BASE_URL = "https://models.github.ai/inference"
+BATCH_SIZE = 5  # events per request; stays under GitHub Models' 8K input cap
+
 
 SYSTEM = """You extract structured metadata from Norwegian course/webinar event pages from skape.no.
 
@@ -25,31 +29,34 @@ Pages use emoji markers as field labels:
 
 Rules:
 - If no physical venue is found, treat the event as digital (webinar): is_digital=true, location_physical=null.
-- "Gratis"/"Free"/"GRATIS" → price_nok=0. If a number like "300,-" appears, extract it as price_nok=300.
-- registration_deadline: return ISO 8601 date (YYYY-MM-DD). If only day+month is given, assume the same year as the event date. Return null if absent.
+- "Gratis"/"Free"/"GRATIS" → price_nok=0. A number like "300,-" → price_nok=300.
+- registration_deadline: return ISO 8601 date (YYYY-MM-DD). If only day+month is given, assume the event's year. Return null if absent.
 - summary: one or two sentences in English describing what attendees will learn or do. Neutral, concrete.
-- Preserve Norwegian text verbatim in location, organizer, instructor — do not translate these.
+- Preserve Norwegian text verbatim in location, organizer, instructor — do not translate.
 - language: use English language name ("Norwegian", "English", "Norwegian/English").
-- Never fabricate data. Use null for anything not clearly stated on the page.
-- Return exactly one entry per event, keyed by the integer index you were given. Maintain input order.
+- Never fabricate data. Use null for anything not clearly stated.
+- Return exactly one entry per event, with the integer index you were given.
+
+Respond ONLY with a JSON object of shape:
+{"events": [{"index": <int>, "metadata": {"summary": <str>, "is_digital": <bool>, "location_physical": <str|null>, "registration_deadline": <str|null>, "price_nok": <number|null>, "organizer": <str|null>, "instructor": <str|null>, "language": <str|null>, "audience": <str|null>, "registration_url": <str|null>}}]}
 """
 
 
 class EventMetadata(BaseModel):
-    summary: str = Field(description="1-2 sentence English description of the event")
-    is_digital: bool = Field(description="True if event is fully online (webinar), false if physical/in-person")
-    location_physical: Optional[str] = Field(description="Physical venue/address for in-person events; null if digital or unknown")
-    registration_deadline: Optional[str] = Field(description="ISO 8601 date (YYYY-MM-DD) of registration deadline; null if absent")
-    price_nok: Optional[float] = Field(description="Price in NOK; 0 for free events; null if unknown")
-    organizer: Optional[str] = Field(description="Event organizer (e.g. 'Skape'); null if unknown")
-    instructor: Optional[str] = Field(description="Instructor/speaker name and affiliation; null if unknown")
-    language: Optional[str] = Field(description="Event language in English (e.g. 'Norwegian', 'English')")
-    audience: Optional[str] = Field(description="Target audience description; null if unspecified")
-    registration_url: Optional[str] = Field(description="URL to registration form; null if not present on page")
+    summary: str
+    is_digital: bool
+    location_physical: Optional[str] = None
+    registration_deadline: Optional[str] = None
+    price_nok: Optional[float] = None
+    organizer: Optional[str] = None
+    instructor: Optional[str] = None
+    language: Optional[str] = None
+    audience: Optional[str] = None
+    registration_url: Optional[str] = None
 
 
 class EventEnrichment(BaseModel):
-    index: int = Field(description="0-based index of the event in the input list")
+    index: int
     metadata: EventMetadata
 
 
@@ -57,19 +64,9 @@ class BatchResult(BaseModel):
     events: list[EventEnrichment]
 
 
-def enrich_events(events_data: list[dict]) -> dict[str, dict]:
-    """Call Claude for the given events; return {uid: metadata_dict}. Empty on failure."""
-    if not events_data:
-        return {}
-
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("enrich: ANTHROPIC_API_KEY not set — skipping", file=sys.stderr)
-        return {}
-
-    client = anthropic.Anthropic()
-
+def _call_batch(client: OpenAI, events_batch: list[dict]) -> list[EventEnrichment]:
     parts = []
-    for i, ev in enumerate(events_data):
+    for i, ev in enumerate(events_batch):
         parts.append(
             f"=== Event {i} ===\n"
             f"Title: {ev['title']}\n"
@@ -78,37 +75,56 @@ def enrich_events(events_data: list[dict]) -> dict[str, dict]:
             f"Listing location label: {ev['location'] or '(none)'}\n\n"
             f"Detail page text:\n{ev['detail_text']}"
         )
-    user_content = "\n\n".join(parts) + "\n\nExtract metadata for every event. Return one entry per event, in the same order."
-
-    try:
-        response = client.messages.parse(
-            model=MODEL,
-            max_tokens=16000,
-            system=[
-                {
-                    "type": "text",
-                    "text": SYSTEM,
-                    "cache_control": {"type": "ephemeral"},
-                }
-            ],
-            messages=[{"role": "user", "content": user_content}],
-            output_format=BatchResult,
-        )
-    except anthropic.APIError as e:
-        print(f"enrich: API error — skipping enrichment: {e}", file=sys.stderr)
-        return {}
-
-    u = response.usage
-    print(
-        f"enrich: {len(events_data)} new events, "
-        f"input={u.input_tokens} output={u.output_tokens} "
-        f"cache_read={u.cache_read_input_tokens} cache_create={u.cache_creation_input_tokens}",
-        file=sys.stderr,
+    user_content = (
+        "\n\n".join(parts)
+        + "\n\nExtract metadata for every event above. Return one entry per event, in input order."
     )
 
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": user_content},
+        ],
+        response_format={"type": "json_object"},
+        max_tokens=4000,
+        temperature=0,
+    )
+    raw = response.choices[0].message.content or "{}"
+    data = json.loads(raw)
+    return BatchResult.model_validate(data).events
+
+
+def enrich_events(events_data: list[dict]) -> dict[str, dict]:
+    """Call GitHub Models; return {uid: metadata_dict}. Empty on failure."""
+    if not events_data:
+        return {}
+
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if not token:
+        print("enrich: GITHUB_TOKEN not set — skipping", file=sys.stderr)
+        return {}
+
+    client = OpenAI(base_url=BASE_URL, api_key=token)
+
     out: dict[str, dict] = {}
-    for entry in response.parsed_output.events:
-        if 0 <= entry.index < len(events_data):
-            uid = events_data[entry.index]["uid"]
-            out[uid] = entry.metadata.model_dump()
+    n_batches = 0
+    for i in range(0, len(events_data), BATCH_SIZE):
+        batch = events_data[i : i + BATCH_SIZE]
+        n_batches += 1
+        try:
+            parsed = _call_batch(client, batch)
+        except (OpenAIError, json.JSONDecodeError, ValueError) as e:
+            print(f"enrich: batch {n_batches} failed, skipping: {e}", file=sys.stderr)
+            continue
+        for entry in parsed:
+            if 0 <= entry.index < len(batch):
+                uid = batch[entry.index]["uid"]
+                out[uid] = entry.metadata.model_dump()
+
+    print(
+        f"enrich: {len(events_data)} new events in {n_batches} batch(es); "
+        f"{len(out)} successfully enriched",
+        file=sys.stderr,
+    )
     return out
