@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Scrape skape.no/kurs/kurskalender and emit skape.ics."""
+"""Scrape skape.no/kurs/kurskalender, enrich new events via Claude, emit skape.ics."""
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import sys
 from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
+from enrich import enrich_events
+
 LIST_URL = "https://www.skape.no/kurs/kurskalender"
 UA = "skape-calendar-bot (+https://github.com/josdyr/skape-calendar)"
+CACHE_PATH = Path("data/enrichment.json")
+DETAIL_TEXT_MAX = 3000  # chars of detail-page text to send to Claude per event
 
 NO_MONTHS = {
     "jan": 1, "feb": 2, "mar": 3, "apr": 4, "mai": 5, "jun": 6,
@@ -54,17 +60,24 @@ def parse_list_date(s: str):
     return int(m.group(3)), month, int(m.group(1))
 
 
-def fetch_time_window(session, url):
+def fetch_detail(session, url):
+    """Return (time_window_or_none, cleaned_text_or_empty)."""
     try:
         r = session.get(url, timeout=20)
         r.raise_for_status()
     except requests.RequestException:
-        return None
+        return None, ""
+    tw = None
     m = TIME_RE.search(r.text)
-    if not m:
-        return None
-    h1, m1, h2, m2 = map(int, m.groups())
-    return (h1, m1), (h2, m2)
+    if m:
+        h1, m1, h2, m2 = map(int, m.groups())
+        tw = (h1, m1), (h2, m2)
+    detail_soup = BeautifulSoup(r.text, "html.parser")
+    for tag in detail_soup(["script", "style", "nav", "header", "footer", "svg"]):
+        tag.decompose()
+    text = detail_soup.get_text(separator="\n", strip=True)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return tw, text[:DETAIL_TEXT_MAX]
 
 
 def esc(s: str) -> str:
@@ -91,6 +104,59 @@ def fold(line: str) -> str:
     return "\r\n ".join(parts)
 
 
+def load_cache() -> dict[str, dict]:
+    if CACHE_PATH.exists():
+        try:
+            return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            print(f"WARN: {CACHE_PATH} is not valid JSON; starting fresh", file=sys.stderr)
+    return {}
+
+
+def save_cache(cache: dict[str, dict]) -> None:
+    CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CACHE_PATH.write_text(
+        json.dumps(cache, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+
+def build_description(url: str, meta: dict | None) -> str:
+    if not meta:
+        return f"Les mer: {url}"
+    lines = []
+    if meta.get("summary"):
+        lines.append(meta["summary"])
+        lines.append("")
+    kv = [
+        ("Søknadsfrist", meta.get("registration_deadline")),
+        ("Pris", f"{int(meta['price_nok'])} NOK" if meta.get("price_nok") == 0 else
+                 f"{meta['price_nok']} NOK" if meta.get("price_nok") is not None else None),
+        ("Arrangør", meta.get("organizer")),
+        ("Kursholder", meta.get("instructor")),
+        ("Språk", meta.get("language")),
+        ("Målgruppe", meta.get("audience")),
+    ]
+    if meta.get("price_nok") == 0:
+        kv[1] = ("Pris", "Gratis")
+    for label, value in kv:
+        if value:
+            lines.append(f"{label}: {value}")
+    if meta.get("registration_url"):
+        lines.append(f"Påmelding: {meta['registration_url']}")
+    lines.append(f"Les mer: {url}")
+    return "\n".join(lines)
+
+
+def build_location(listing_loc: str, meta: dict | None) -> str:
+    if meta:
+        if meta.get("location_physical"):
+            return meta["location_physical"]
+        if meta.get("is_digital"):
+            return "Digitalt (webinar)"
+    return listing_loc
+
+
 def main() -> int:
     session = requests.Session()
     session.headers["User-Agent"] = UA
@@ -112,18 +178,42 @@ def main() -> int:
         loc_el = card.select_one(".location span")
         if not (a and title_el and date_el):
             continue
-        ymd = parse_list_date(date_el.get_text(" ", strip=True))
+        date_str = date_el.get_text(" ", strip=True)
+        ymd = parse_list_date(date_str)
         if not ymd:
             continue
         url = urljoin(LIST_URL, a["href"])
+        uid = hashlib.sha1(url.encode("utf-8")).hexdigest() + "@skape-calendar"
         title = title_el.get_text(" ", strip=True)
         location = loc_el.get_text(" ", strip=True) if loc_el else ""
-        tw = fetch_time_window(session, url)
-        events.append((url, title, location, ymd, tw))
+        tw, detail_text = fetch_detail(session, url)
+        events.append({
+            "uid": uid,
+            "url": url,
+            "title": title,
+            "location": location,
+            "date_str": date_str,
+            "ymd": ymd,
+            "tw": tw,
+            "detail_text": detail_text,
+        })
 
     if not events:
         print("ERROR: parsed 0 events — HTML structure may have changed", file=sys.stderr)
         return 1
+
+    cache = load_cache()
+    new_events = [e for e in events if e["uid"] not in cache]
+    print(f"scrape: {len(events)} total, {len(new_events)} new, {len(events) - len(new_events)} cached", file=sys.stderr)
+
+    if new_events:
+        new_meta = enrich_events(new_events)
+        for uid, meta in new_meta.items():
+            cache[uid] = meta
+        save_cache(cache)
+    else:
+        # touch nothing — keep file on disk identical
+        pass
 
     now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out = [
@@ -134,13 +224,18 @@ def main() -> int:
         "METHOD:PUBLISH",
         "X-WR-CALNAME:Skape kurskalender",
         "X-WR-TIMEZONE:Europe/Oslo",
-        "X-PUBLISHED-TTL:PT6H",
-        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
+        "X-PUBLISHED-TTL:P1D",
+        "REFRESH-INTERVAL;VALUE=DURATION:P1D",
         *VTIMEZONE,
     ]
     with_time = 0
-    for url, title, location, (y, mo, d), tw in events:
-        uid = hashlib.sha1(url.encode("utf-8")).hexdigest() + "@skape-calendar"
+    for ev in events:
+        uid = ev["uid"]
+        url = ev["url"]
+        title = ev["title"]
+        y, mo, d = ev["ymd"]
+        tw = ev["tw"]
+        meta = cache.get(uid)
         out.append("BEGIN:VEVENT")
         out.append(f"UID:{uid}")
         out.append(f"DTSTAMP:{now}")
@@ -154,17 +249,22 @@ def main() -> int:
             out.append(f"DTSTART;VALUE=DATE:{y:04d}{mo:02d}{d:02d}")
             out.append(f"DTEND;VALUE=DATE:{nxt.strftime('%Y%m%d')}")
         out.append(fold(f"SUMMARY:{esc(title)}"))
-        if location:
-            out.append(fold(f"LOCATION:{esc(location)}"))
+        loc = build_location(ev["location"], meta)
+        if loc:
+            out.append(fold(f"LOCATION:{esc(loc)}"))
         out.append(fold(f"URL:{url}"))
-        out.append(fold(f"DESCRIPTION:{esc('Les mer: ' + url)}"))
+        out.append(fold(f"DESCRIPTION:{esc(build_description(url, meta))}"))
         out.append("END:VEVENT")
     out.append("END:VCALENDAR")
 
     with open("skape.ics", "w", encoding="utf-8", newline="") as f:
         f.write("\r\n".join(out) + "\r\n")
 
-    print(f"Wrote skape.ics: {len(events)} events ({with_time} with times, {len(events) - with_time} all-day)")
+    enriched_count = sum(1 for e in events if e["uid"] in cache)
+    print(
+        f"Wrote skape.ics: {len(events)} events "
+        f"({with_time} with times, {enriched_count} enriched)"
+    )
     return 0
 
 

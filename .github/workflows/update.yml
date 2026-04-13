@@ -2,13 +2,13 @@ name: Update skape.ics
 
 on:
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '17 6 * * *'  # daily at 06:17 UTC (~08:17 Oslo)
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,9 +26,27 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
-      - run: |
+
+      - name: Scrape + enrich
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scrape.py
+
+      - name: Commit enrichment cache if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/enrichment.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/enrichment.json
+            git commit -m "chore: update enrichment cache [skip ci]"
+            git push
+          else
+            echo "No cache changes to commit."
+          fi
+
+      - name: Build site
+        run: |
           mkdir -p _site
-          python scrape.py
           mv skape.ics _site/
           cat > _site/index.html <<'EOF'
           <!doctype html>
@@ -38,6 +56,7 @@ jobs:
           <p>Subscribe: <a href="skape.ics">skape.ics</a></p>
           <p>Source: <a href="https://www.skape.no/kurs/kurskalender">skape.no/kurs/kurskalender</a></p>
           EOF
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
