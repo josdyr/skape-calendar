@@ -1,0 +1,53 @@
+name: Update skape.ics
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          mkdir -p _site
+          python scrape.py
+          mv skape.ics _site/
+          cat > _site/index.html <<'EOF'
+          <!doctype html>
+          <meta charset=utf-8>
+          <title>Skape kurskalender</title>
+          <h1>Skape kurskalender (ICS)</h1>
+          <p>Subscribe: <a href="skape.ics">skape.ics</a></p>
+          <p>Source: <a href="https://www.skape.no/kurs/kurskalender">skape.no/kurs/kurskalender</a></p>
+          EOF
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
