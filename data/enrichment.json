@@ -1,4 +1,16 @@
 {
+  "15d1c0e5782c22cc097ad91214724b0a5bd01e31@skape-calendar": {
+    "audience": "Tidligfase gründere, nyetablerte bedrifter, gründerteam",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-23",
+    "registration_url": null,
+    "summary": "This webinar provides an introduction to using free versions of Microsoft 365 and Google Workspace as administrative tools for startups. Attendees will learn about selecting the right office tools based on their business needs and growth ambitions."
+  },
   "2bed31722b20641173296eaef93a77782ad304d7@skape-calendar": {
     "audience": "Gründere og folk fra gründerøkosystemet",
     "instructor": "Karianne Hartviksen",
@@ -23,6 +35,18 @@
     "registration_url": "https://www.skape.no/kurskalender/heldagskurs-budsjettering-og-likviditetsstyring-haugesund",
     "summary": "This course provides an introduction to budgeting and liquidity management, along with the various assessments a company must make to achieve its goals."
   },
+  "4c3fb6f4c71227440a8ed6e0855bf38a36c04b6c@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": null,
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-20",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-chatgpt-introduksjonskurs-2",
+    "summary": "Learn to use ChatGPT developed by OpenAI to increase efficiency in your business."
+  },
   "5ddacef7a2913bd4cfa01bd15abf964f3e13d20c@skape-calendar": {
     "audience": "Økonomiansvarlige, ledere, og andre med ansvar for økonomisk planlegging",
     "instructor": "Flyt Regnskap",
@@ -34,6 +58,18 @@
     "registration_deadline": "2026-05-03",
     "registration_url": "https://www.skape.no/kurskalender/heldagskurs-budsjettering-og-likviditetsstyring-jæren",
     "summary": "This full-day course covers budgeting and liquidity management, providing practical tools and insights for financial planning."
+  },
+  "617edf1700426ad1ec1f98278778014116f5c207@skape-calendar": {
+    "audience": "Gründere med grunnleggende kjennskap til ChatGPT",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-24",
+    "registration_url": null,
+    "summary": "This advanced webinar teaches participants how to use ChatGPT more effectively in their business operations. It focuses on practical techniques for utilizing ChatGPT for idea development, analysis, and daily tasks."
   },
   "6c435deac7bd81c8594a4fc9ad97c92d83122761@skape-calendar": {
     "audience": null,
@@ -82,6 +118,18 @@
     "registration_deadline": "2026-04-24",
     "registration_url": "https://www.skape.no/kurskalender/webinar-introduksjon-til-digital-markedsføring-6",
     "summary": "This webinar provides insights into various digital channels and how digital marketing can help your business grow."
+  },
+  "7fb6c6abf50ff854c0c022c83c89abc3e5a0d7b4@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": null,
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-19",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-kommunikasjonsstrategi-og-plan",
+    "summary": "Master the art of effective communication on social media and learn to develop a strategy that delivers results."
   },
   "92ed4f6805621636988c5fd45cb5e0b32fe0a0fe@skape-calendar": {
     "audience": "Personer som vurderer å starte selskap, eller som nylig har startet og ønsker bedre kontroll på regnskap og økonomi.",
@@ -167,6 +215,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-go-to-market-2",
     "summary": "Join an inspiring webinar on how to reach your customers and understand the difference between marketing and go-to-market strategies."
   },
+  "dcdf817de1e58af8aaf262965f88e0abb804ddfc@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": null,
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-17",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-introduksjon-til-digital-markedsføring-7",
+    "summary": "Gain insights into various digital channels and how digital marketing can help your business grow."
+  },
   "dda610132b4f7c4d1dcf43caaff8407cc7bc9544@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -239,6 +299,18 @@
     "registration_url": "https://www.skape.no/kurskalender/salgskurs-haugesund",
     "summary": "This full-day course will provide you with practical sales tools and insights from top sellers in Norway to enhance your sales skills."
   },
+  "f3c85bd7aaf6e033b07de77ba78a241e4c42bf65@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": null,
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-19",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-mailchimp-og-nyhetsbrev-5",
+    "summary": "Learn to use email marketing to engage customers and increase sales with Mailchimp."
+  },
   "fe50bfc6e7689203d447fdb4bc6fd4b85abd4fbd@skape-calendar": {
     "audience": "Open to all entrepreneurs in Rogaland",
     "instructor": null,
@@ -262,5 +334,17 @@
     "registration_deadline": "2026-05-04",
     "registration_url": "https://www.skape.no/kurskalender/webinar-sosialt-entreprenørskap-i-praksis",
     "summary": "This webinar provides a practical introduction to social entrepreneurship, including characteristics, organizational models, and financing options."
+  },
+  "febedd51f539e255d12f0c423b33c60c69c7c57a@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": null,
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-18",
+    "registration_url": "https://www.skape.no/kurskalender/design-med-canva-grunnkurs-gratis-versjon",
+    "summary": "Learn to create professional and engaging designs using Canva and gain the tools and knowledge needed for visual content creation."
   }
 }
