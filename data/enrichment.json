@@ -23,6 +23,18 @@
     "registration_url": null,
     "summary": "Join Skape Gründerforum for a networking event where entrepreneurs and members of the startup ecosystem meet over good food and genuine conversations."
   },
+  "2e4058918af05b1fb929080174f742963e6f01ea@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-05-24",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-bli-synlig-på-sosiale-medier-facebook-8",
+    "summary": "Learn to increase your company's visibility and engagement on Facebook by creating a professional page, building a strong brand, and developing engaging content strategies."
+  },
   "3137a531b4dbbfe59ef0c867aed513959a6c9bf4@skape-calendar": {
     "audience": null,
     "instructor": "Flyt Regnskap",
@@ -34,6 +46,30 @@
     "registration_deadline": "2026-05-11",
     "registration_url": "https://www.skape.no/kurskalender/heldagskurs-budsjettering-og-likviditetsstyring-haugesund",
     "summary": "This course provides an introduction to budgeting and liquidity management, along with the various assessments a company must make to achieve its goals."
+  },
+  "351f3da48b36cabee93ecf01aa88e3a308cad685@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-25",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-google-for-bedrift-7",
+    "summary": "Discover how to effectively use Google My Business to enhance your business visibility on Google Search and Maps."
+  },
+  "3b185d202e95e944d0dc130d5ad06b46629f2c20@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-10-11",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-søkemotoroptimalisering-seo-6",
+    "summary": "Learn how to improve your website's visibility in search engine results through SEO techniques such as keyword research and content optimization."
   },
   "4c3fb6f4c71227440a8ed6e0855bf38a36c04b6c@skape-calendar": {
     "audience": null,
@@ -167,6 +203,18 @@
     "registration_url": "https://www.skape.no/kurskalender/etablerer-introduksjonskurs-stavanger-5",
     "summary": "This introductory course is designed for new entrepreneurs to provide practical advice and essential elements for starting a business."
   },
+  "b01e4af2ced84e068b662e0a56d01004cef32bc8@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-25",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-linkedin-for-deg-og-din-bedrift-2",
+    "summary": "Learn to leverage LinkedIn for networking and B2B marketing by creating a professional business profile and engaging content."
+  },
   "b867d998ae1d5e730c29bc4a7f0c050a8cc80229@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
@@ -263,6 +311,42 @@
     "registration_url": "https://www.skape.no/kurskalender/etablerer-introduksjonskurs-jæren-2",
     "summary": "This course is for new entrepreneurs and covers essential elements for starting a business, including company forms, registration, and business planning."
   },
+  "e5e67e6e3c63f5ba8e5eeb48bb2bdf4c1b72247b@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-27",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-design-med-canva-videregående-nivå-betalt-versjon",
+    "summary": "This advanced webinar in design with Canva is for entrepreneurs who want to work more professionally and strategically with visual content."
+  },
+  "e7a970a82726f1eb49404bcd78c06356868e8866@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-03-28",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-linkedin-for-deg-og-din-bedrift",
+    "summary": "Learn to use LinkedIn for networking and B2B marketing by creating a professional company profile, developing a communication strategy, and creating engaging content."
+  },
+  "e8493ebf26c91191830eed38dfdbed9a9ef65aa5@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": "Kathrine Jølle Wathne fra Aktiv Kunnskap -\nwww.aktivkunnskap.no",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-29",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-lag-nettside-med-webnode",
+    "summary": "Learn how to create a professional website for your business using Webnode, without any technical background or prior experience."
+  },
   "e90fe5c56a0b1b15dae9c2557ec2c2928c274fc3@skape-calendar": {
     "audience": "Gründere som vil bli mer synlige i sosiale medier.",
     "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
@@ -310,6 +394,18 @@
     "registration_deadline": "2026-08-19",
     "registration_url": "https://www.skape.no/kurskalender/webinar-mailchimp-og-nyhetsbrev-5",
     "summary": "Learn to use email marketing to engage customers and increase sales with Mailchimp."
+  },
+  "f8f1f323a849f21da5cb100ebeb8d140248fa4d9@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": "Kathrine Jølle Wathne i\nAktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-23",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-bli-synlig-på-sosiale-medier-instagram-8",
+    "summary": "Learn to improve your company's visibility on Instagram by creating and optimizing a business profile, building a strong brand, and using strategies for increased engagement."
   },
   "fe50bfc6e7689203d447fdb4bc6fd4b85abd4fbd@skape-calendar": {
     "audience": "Open to all entrepreneurs in Rogaland",
