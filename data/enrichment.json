@@ -1,4 +1,16 @@
 {
+  "11ff3c70c57429b70da8c27f6573a1d7dfbdaaf9@skape-calendar": {
+    "audience": "Grûndere",
+    "instructor": null,
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Egersund Næringspark, Langholmen",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-10-13",
+    "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-dalane",
+    "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
+  },
   "15d1c0e5782c22cc097ad91214724b0a5bd01e31@skape-calendar": {
     "audience": "Tidligfase gründere, nyetablerte bedrifter, gründerteam",
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -10,6 +22,18 @@
     "registration_deadline": "2026-08-23",
     "registration_url": null,
     "summary": "This webinar provides an introduction to using free versions of Microsoft 365 and Google Workspace as administrative tools for startups. Attendees will learn about selecting the right office tools based on their business needs and growth ambitions."
+  },
+  "18c5d927d111be9ef3257d380f6c8ebec6fbad2c@skape-calendar": {
+    "audience": "Gründere",
+    "instructor": null,
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Breidablikkgården, Kirkegata 130, Haugesund",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-10",
+    "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-haugesund-2",
+    "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
   },
   "2bed31722b20641173296eaef93a77782ad304d7@skape-calendar": {
     "audience": "Gründere og folk fra gründerøkosystemet",
@@ -82,6 +106,18 @@
     "registration_deadline": "2026-08-20",
     "registration_url": "https://www.skape.no/kurskalender/webinar-chatgpt-introduksjonskurs-2",
     "summary": "Learn to use ChatGPT developed by OpenAI to increase efficiency in your business."
+  },
+  "5909af0422d6cb052680a144f35f40fc7ab4a252@skape-calendar": {
+    "audience": "Gründer",
+    "instructor": null,
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Forum Jæren (Fusst), Hetlandsgata 9, 4344 Bryne",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-17",
+    "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-jæren",
+    "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
   },
   "5ddacef7a2913bd4cfa01bd15abf964f3e13d20c@skape-calendar": {
     "audience": "Økonomiansvarlige, ledere, og andre med ansvar for økonomisk planlegging",
@@ -179,6 +215,18 @@
     "registration_url": "https://www.skape.no/kurskalender/heldagskurs-regnskap-haugesund-2",
     "summary": "Learn about company startup and accounting basics, including financial statements and taxes."
   },
+  "9390bdb5ada7e816221bfe5b0df6882bfefaf767@skape-calendar": {
+    "audience": "grûndere",
+    "instructor": null,
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Breidablikkgården, Kirkegata 130, Haugesund",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-08",
+    "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-haugesund",
+    "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
+  },
   "962e7185c0b1b84c3eb6de86bdb5e1bebfc4c23c@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap",
@@ -262,6 +310,18 @@
     "registration_deadline": null,
     "registration_url": "https://www.skape.no/kurskalender/webinar-go-to-market-2",
     "summary": "Join an inspiring webinar on how to reach your customers and understand the difference between marketing and go-to-market strategies."
+  },
+  "d8156c19105a15c1e43cd5d3a1615157c16dbf49@skape-calendar": {
+    "audience": "Gründere",
+    "instructor": null,
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Måltidets Hus (bygg I 7) - Innovasjonsparken Stavanger, Richard Johnsens gate 4",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-10-27",
+    "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-stavanger",
+    "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
   },
   "dcdf817de1e58af8aaf262965f88e0abb804ddfc@skape-calendar": {
     "audience": null,
