@@ -1,4 +1,16 @@
 {
+  "0063e42c27495f6fa87c6d433a21378e6360a1a9@skape-calendar": {
+    "audience": "Gründere og småbedrifter som allerede har en Instagram-konto for bedriften",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-28",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-ulike-innleggstyper-på-instagram",
+    "summary": "This webinar teaches how to strategically use different types of content on Instagram to enhance visibility and engagement for businesses."
+  },
   "11ff3c70c57429b70da8c27f6573a1d7dfbdaaf9@skape-calendar": {
     "audience": "Grûndere",
     "instructor": null,
@@ -34,6 +46,30 @@
     "registration_deadline": "2026-11-10",
     "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-haugesund-2",
     "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
+  },
+  "1f9e842c64e83ee7794d61e02018fe45c377816c@skape-calendar": {
+    "audience": "Gründere og etablerere, småbedriftseiere som lager presentasjoner selv",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-30",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-bruk-kunstig-intelligens-til-å-lage-presentasjoner",
+    "summary": "In this webinar, participants will learn how to use artificial intelligence tools to create presentations more efficiently and effectively."
+  },
+  "238d065909e98146388f7958ea2552d4e538510d@skape-calendar": {
+    "audience": "Gründere",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-12-01",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-introduksjon-til-digital-markedsføring-8",
+    "summary": "Gain insights into various digital channels and how digital marketing can help your business grow."
   },
   "2bed31722b20641173296eaef93a77782ad304d7@skape-calendar": {
     "audience": "Gründere og folk fra gründerøkosystemet",
@@ -83,6 +119,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-google-for-bedrift-7",
     "summary": "Discover how to effectively use Google My Business to enhance your business visibility on Google Search and Maps."
   },
+  "35ae03606bc513dd3c3a65bfa8921220ba071556@skape-calendar": {
+    "audience": "Gründere som vil bli mer synlige i sosiale medier",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-30",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-lag-reels-med-canva-2",
+    "summary": "Learn how to create engaging Reels using Canva to increase visibility and reach on social media."
+  },
   "3b185d202e95e944d0dc130d5ad06b46629f2c20@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -106,6 +154,18 @@
     "registration_deadline": "2026-10-19",
     "registration_url": null,
     "summary": "This practical course covers what is required to succeed in sales from A to Z, providing participants with concrete tools, techniques, and systems that can be immediately implemented in their own business."
+  },
+  "428e5cdd69ad36d35541d4ad73211a4e9cc7d1b6@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-12-13",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-design-med-canva-7",
+    "summary": "Create professional and engaging content for social media, websites, or presentations using Canva without advanced software."
   },
   "4c3fb6f4c71227440a8ed6e0855bf38a36c04b6c@skape-calendar": {
     "audience": null,
@@ -178,6 +238,18 @@
     "registration_deadline": "2026-05-20",
     "registration_url": "https://www.skape.no/kurskalender/webinar-linkedin-for-deg-og-din-bedrift-copy",
     "summary": "This webinar teaches how to use LinkedIn for networking and B2B marketing, including creating a professional company profile and developing a communication strategy."
+  },
+  "70d997842cbcf6cc76f9059dbec839881676e090@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-12-06",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-bli-synlig-på-sosiale-medier-facebook-9",
+    "summary": "Increase your business visibility and engagement on Facebook by creating a professional page and developing a strategy."
   },
   "7af887585b4e0ae5995023481c8c83df1f0866dd@skape-calendar": {
     "audience": "Økonomiansvarlige, ledere, og andre med ansvar for økonomisk planlegging",
@@ -263,6 +335,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-lag-engasjerende-videoer-og-animasjoner-med-canva-2",
     "summary": "This webinar is designed for entrepreneurs and provides a simple introduction to creating engaging videos and animations using Canva."
   },
+  "99aaa00c2ace7b643d313d1ce9ce71dbdc5aaa50@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-12-03",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-kommunikasjonsstrategi-og-plan-2",
+    "summary": "Learn to communicate effectively on social media and develop a strategy that delivers results."
+  },
   "add0e91f492404aa26df4c2b4b624ee7beee5e0d@skape-calendar": {
     "audience": null,
     "instructor": null,
@@ -347,6 +431,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-go-to-market-2",
     "summary": "Join an inspiring webinar on how to reach your customers and understand the difference between marketing and go-to-market strategies."
   },
+  "d55360f1655a5db6049c38c4f4f5dadc1b384142@skape-calendar": {
+    "audience": "Gründere, selvstendig næringsdrivende og ansatte i små bedrifter",
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-08-30",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-lag-bilder-musikk-og-video-med-kunstig-intelligens",
+    "summary": "This webinar provides a practical introduction to using artificial intelligence to create images, music, and videos for marketing and social media without needing design skills."
+  },
   "d8156c19105a15c1e43cd5d3a1615157c16dbf49@skape-calendar": {
     "audience": "Gründere",
     "instructor": null,
@@ -418,6 +514,18 @@
     "registration_deadline": "2026-09-27",
     "registration_url": "https://www.skape.no/kurskalender/webinar-design-med-canva-videregående-nivå-betalt-versjon",
     "summary": "This advanced webinar in design with Canva is for entrepreneurs who want to work more professionally and strategically with visual content."
+  },
+  "e757f16f41e9147abcc54cfe0bed0c2fa60b3ec1@skape-calendar": {
+    "audience": null,
+    "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
+    "is_digital": true,
+    "language": "Norwegian",
+    "location_physical": null,
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-12-10",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-bli-synlig-på-sosiale-medier-instagram-9",
+    "summary": "Improve your business visibility on Instagram by creating and optimizing a business profile and engaging content."
   },
   "e7a970a82726f1eb49404bcd78c06356868e8866@skape-calendar": {
     "audience": "Gründer",
