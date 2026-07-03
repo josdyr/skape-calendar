@@ -59,6 +59,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-bruk-kunstig-intelligens-til-å-lage-presentasjoner",
     "summary": "In this webinar, participants will learn how to use artificial intelligence tools to create presentations more efficiently and effectively."
   },
+  "21daa6c43668d699b82617d1c01dc164efd49502@skape-calendar": {
+    "audience": null,
+    "instructor": null,
+    "is_digital": true,
+    "language": "English",
+    "location_physical": null,
+    "organizer": "Skape.no",
+    "price_nok": null,
+    "registration_deadline": "2026-11-12",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-sales-marketing-for-b2c",
+    "summary": "This webinar will focus on sales and marketing techniques tailored for B2C businesses."
+  },
   "238d065909e98146388f7958ea2552d4e538510d@skape-calendar": {
     "audience": "Gründere",
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -515,6 +527,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-design-med-canva-videregående-nivå-betalt-versjon",
     "summary": "This advanced webinar in design with Canva is for entrepreneurs who want to work more professionally and strategically with visual content."
   },
+  "e702bff8ee3c4d8056d1100bf4c1e1267b85765e@skape-calendar": {
+    "audience": null,
+    "instructor": null,
+    "is_digital": true,
+    "language": "English",
+    "location_physical": null,
+    "organizer": "Skape.no",
+    "price_nok": null,
+    "registration_deadline": "2026-12-15",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-administration-for-your-business-3",
+    "summary": "This webinar will provide insights into effective administration practices for businesses."
+  },
   "e757f16f41e9147abcc54cfe0bed0c2fa60b3ec1@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -586,6 +610,18 @@
     "registration_deadline": "2026-04-24",
     "registration_url": "https://www.skape.no/kurskalender/salgskurs-haugesund",
     "summary": "This full-day course will provide you with practical sales tools and insights from top sellers in Norway to enhance your sales skills."
+  },
+  "f2fcd2d363625cb6e5a321bbe205f2b875eaf3a1@skape-calendar": {
+    "audience": null,
+    "instructor": null,
+    "is_digital": true,
+    "language": "English",
+    "location_physical": null,
+    "organizer": "Skape.no",
+    "price_nok": null,
+    "registration_deadline": "2026-10-15",
+    "registration_url": "https://www.skape.no/kurskalender/webinar-sales-marketing-for-b2b",
+    "summary": "This webinar will cover strategies for effective sales and marketing in a B2B context."
   },
   "f3c85bd7aaf6e033b07de77ba78a241e4c42bf65@skape-calendar": {
     "audience": null,
