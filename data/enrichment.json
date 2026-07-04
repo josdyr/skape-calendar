@@ -143,6 +143,18 @@
     "registration_url": "https://www.skape.no/kurskalender/webinar-lag-reels-med-canva-2",
     "summary": "Learn how to create engaging Reels using Canva to increase visibility and reach on social media."
   },
+  "3ab8bf6c48395e3437ae64bdc6757668ea7db459@skape-calendar": {
+    "audience": null,
+    "instructor": "Flyt Regnskap",
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Innovasjonsparken Stavanger, Måltidets Hus, Richard Johnsens gate 4, Stavanger",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-09-04",
+    "registration_url": "https://www.skape.no/kurskalender/heldagskurs-styr-bedriften-med-tall-ikke-magefølelse-stavanger",
+    "summary": "This course provides a practical introduction to financial management for entrepreneurs, covering essential accounting principles and how to use budgeting and liquidity as tools for managing your business."
+  },
   "3b185d202e95e944d0dc130d5ad06b46629f2c20@skape-calendar": {
     "audience": null,
     "instructor": "Kathrine Jølle Wathne i Aktiv Kunnskap AS",
@@ -214,6 +226,18 @@
     "registration_deadline": "2026-11-17",
     "registration_url": "https://www.skape.no/kurskalender/etablererkurs-slik-bygger-du-din-virksomhet-jæren",
     "summary": "This course provides the tools you need to develop your business idea, whether you are in the initial phase or have recently established a company."
+  },
+  "59a09665002e3a3db0725b0f5ff0e520e9a33575@skape-calendar": {
+    "audience": null,
+    "instructor": "Flyt Regnskap",
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Gründerloftet (Verkstedet) - Smedasundet 66, 5528 Haugesund, Norge",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-10-06",
+    "registration_url": "https://www.skape.no/kurskalender/heldagskurs-styr-bedriften-med-tall-ikke-magefølelse-haugesund",
+    "summary": "This course provides a practical introduction to financial management for entrepreneurs, covering essential accounting principles and how to use budgeting and liquidity as tools for managing your business."
   },
   "5ddacef7a2913bd4cfa01bd15abf964f3e13d20c@skape-calendar": {
     "audience": "Økonomiansvarlige, ledere, og andre med ansvar for økonomisk planlegging",
@@ -418,6 +442,30 @@
     "registration_deadline": "2026-05-11",
     "registration_url": "https://www.skape.no/kurskalender/webinar-bli-synlig-på-sosiale-medier-instagram-7",
     "summary": "This webinar teaches how to enhance your business visibility on Instagram, covering profile optimization, branding, and engagement strategies."
+  },
+  "bd5ec020be3c09b7d04b1eafdfb032fb8498aba7@skape-calendar": {
+    "audience": null,
+    "instructor": "Flyt Regnskap",
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Innovasjonsparken Stavanger, Måltidets Hus, Richard Johnsens gate 4, Stavanger",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-13",
+    "registration_url": "https://www.skape.no/kurskalender/heldagskurs-styr-bedriften-med-tall-ikke-magefølelse-stavanger-2",
+    "summary": "This course provides a practical introduction to financial management for entrepreneurs, covering essential accounting principles and how to use budgeting and liquidity as tools for managing your business."
+  },
+  "c0d3724ed36bc163518cf996dd330be63615e22a@skape-calendar": {
+    "audience": null,
+    "instructor": "Flyt Regnskap",
+    "is_digital": false,
+    "language": "Norwegian",
+    "location_physical": "Gründerloftet (Verkstedet) - Smedasundet 66, 5528 Haugesund, Norge",
+    "organizer": "Skape",
+    "price_nok": 0.0,
+    "registration_deadline": "2026-11-20",
+    "registration_url": "https://www.skape.no/kurskalender/heldagskurs-styr-bedriften-med-tall-ikke-magefølelse-haugesund-copy",
+    "summary": "This course provides a practical introduction to financial management for entrepreneurs, covering essential accounting principles and how to use budgeting and liquidity as tools for managing your business."
   },
   "c1803e8586ff15d3d2130327bb25a48c9966482f@skape-calendar": {
     "audience": null,
